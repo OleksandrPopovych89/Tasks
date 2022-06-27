@@ -1,4 +1,8 @@
-package Task1;
+
+/*
+Создать массив на 10 чисел. Заполнить его числами с клавиатуры. Вывести пять наибольших чисел.
+*/
+package lesson19.Task3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,25 +10,19 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-1. Ввести с клавиатуры число N.
-2. Считать N целых чисел и заполнить ими список - метод getIntegerList.
-3. Найти минимальное число среди элементов списка - метод getMinimum.
-*/
-public class Task1 {
+
+public class Task3 {
     public static void main(String[] args) throws IOException {
 
-        int n;
+        int n = 10;
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print("Enter n number: ");
-        n = Integer.parseInt(bufferedReader.readLine());
 
         List<Integer> list = new ArrayList<>();
 
         getIntegerList(list, n, bufferedReader);
 
-        System.out.println("Minimum value is: " + getMinimum(list));
+        System.out.println("Maximum value is: " + getMinimum(list));
 
 
     }
@@ -37,10 +35,10 @@ public class Task1 {
     }
 
     public static int getMinimum(List<Integer> list) {
-        int min = list.get(0);
+        int max = list.get(0);
         for (int i = 1; i < list.size(); i++) {
-            min = Math.min(min, list.get(i));
+            max = Math.max(max, list.get(i));
         }
-        return min;
+        return max;
     }
 }
